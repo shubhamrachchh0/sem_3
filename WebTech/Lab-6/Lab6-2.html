@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="clic()">On click</button>
+    <button ondblclick="doubleclick()">On doubleclick</button>
+    <button onmousedown="mousedown()">On mousedown</button>
+    <button onmousemove="mousemove()">On mousemove</button>
+    <button onmouseout="mouseout()">On mouseout</button>
+    <button onmouseover="mouseover()">On mouseover</button>
+    <button onmouseup="mouseup()">On mouseup</button>
+    <script>
+        function clic() {
+            alert("Button clicked");
+        }
+        function doubleclick() {
+            alert("Button double clicked");
+        }
+        function mousedown() {
+            alert("Mouse button pressed");
+        }
+        function mousemove() {
+            alert("Mouse moved");
+        }
+        function mouseout() {
+            alert("Mouse left the button");
+        }
+        function mouseover() {
+            alert("Mouse entered the button");
+        }
+        function mouseup() {
+            alert("Mouse button released");
+        }
+    </script>
+</body>
+</html>

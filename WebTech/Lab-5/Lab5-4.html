@@ -1,0 +1,85 @@
+<!-- Write a JavaScript program to validate user data given from the HTML form
+1) username must be of minimum 8 characters
+2) password must contain at least 1 digit and 1 special character and should be between 8-
+12 characters
+3) password and repeat password must be same
+4) age must be greater than 18 (calculate from date of birth)
+5) enrollment must be of 11 digits
+6) email validation -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style> 
+		body{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			
+		}
+		.container{
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			gap:25px;	
+			border:2px solid black;
+		}
+
+		input{
+			border-radius:2px;
+			border:2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div class="container"> 
+		<input type="text" placeholder="username" id="uname">
+		<input type="password" placeholder="passoword" id="password">
+		<input type="password" placeholder="verifypassword" id="verifypassword">
+		<input type="number" placeholder="age" id="age">		
+		<input type="text" placeholder="enrollment no" id="enrollment">
+		<input type="email" placeholder="email" id="email">
+		<input type="submit" onclick="validate()">
+	</div>
+
+	<script>
+		uname = document.getElementById("uname")
+		password = document.getElementById("password")
+		vpassword = document.getElementById("verifypassword")
+		eno = document.getElementById("enrollment")
+		age =  document.getElementById("age")
+		em = document.getElementById("email")
+		function validate(){
+			if(uname.value.length<8){
+				uname.style.border="2px solid red"
+			}
+			pass_pattern = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,12}$/;
+			if((password.value.length<8 ||password.value.length>12 )&& !pass_pattern.test(password)){
+				password.style.border="2px solid red"
+			}
+
+			if(password.value!=vpassword.value){
+				password.style.border="2px solid red"
+				vpassword.style.border="2px solid red"				
+			}
+			if(eno.value.length<11 || eno.value	.length>12){
+				eno.style.border="2px solid red"
+			}
+
+			if(age.value<18){
+				age.style.border="2px solid red"				
+			}
+			email_pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,6}$/;
+
+			if(!email_pattern.test(em.value)){
+				em.style.border="2px solid red"
+			}
+		}
+	</script>
+
+</body>
+</html>
